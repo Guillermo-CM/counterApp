@@ -6,7 +6,7 @@ class Counter extends StatefulWidget {
 }
 class _CounterState extends State<Counter> {
   int countador = 10;
-  String textito = "Clicks";
+  String textito = "Click";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +24,7 @@ class _CounterState extends State<Counter> {
         ),
       ),
       floatingActionButton:Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.end,
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           FloatingActionButton(
@@ -38,16 +38,25 @@ class _CounterState extends State<Counter> {
             },
               child: const Icon(Icons.plus_one),
           ),
-          const SizedBox(height: 10),
+          const SizedBox(height: 12),
           FloatingActionButton(
             onPressed: () {
                 setState(() {
-                if (countador > 0) {
-                  countador --;
+                if (countador == 0) {
                   textito = "ESTÁS EN 0";
+                }else {
+                  countador --;
                   }
                 });
               }, child: const Icon(Icons.exposure_minus_1)),
+          const SizedBox(height: 12),
+          FloatingActionButton(
+          onPressed: () {
+            setState(() {
+              countador = 0;
+              textito = "Click";
+            });
+          }, child: const Icon(Icons.refresh_rounded))
         ],
       ),
     );
