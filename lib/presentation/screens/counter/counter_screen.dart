@@ -31,8 +31,10 @@ class _CounterState extends State<Counter> {
             onPressed: () {
                 setState(() {
                 countador ++;
-                if (countador > 0) {
-                textito = "Clicks";
+                if (countador == 1) {
+                textito = "Click";
+                }else {
+                  textito = "Clicks";
                 }
                 });
             },
@@ -42,12 +44,14 @@ class _CounterState extends State<Counter> {
           FloatingActionButton(
             onPressed: () {
                 setState(() {
-                if (countador == 0) {
-                  textito = "ESTÁS EN 0";
-                }else {
+                if (countador == 0){
+                  textito = "No mas clicks!";
+                }else{
                   countador --;
-                  }
-                });
+                  if (countador == 1) {
+                  textito = "Click";
+                }
+                }});
               }, child: const Icon(Icons.exposure_minus_1)),
           const SizedBox(height: 12),
           FloatingActionButton(
