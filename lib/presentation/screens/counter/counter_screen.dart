@@ -31,6 +31,9 @@ class _CounterState extends State<Counter> {
             onPressed: () {
                 setState(() {
                 countador ++;
+                if (countador > 0) {
+                textito = "Clicks";
+                }
                 });
             },
               child: const Icon(Icons.plus_one),
@@ -40,6 +43,10 @@ class _CounterState extends State<Counter> {
             onPressed: () {
                 setState(() {
                 countador --;
+                if (countador < 0) {
+                  countador = -0;
+                  textito = "No negativos";
+                }
                 });
               }, child: const Icon(Icons.exposure_minus_1)),
         ],
